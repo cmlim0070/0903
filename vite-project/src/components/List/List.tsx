@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
-import "../../styles/List.css";
 import Detail from "./../Modal/Detail";
 
-export default function List({ itemList }) {
+import "../../styles/List.css";
+
+export default function List({ itemList, onDeleteItem }) {
     const [modalState, setModalState] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
@@ -32,7 +33,11 @@ export default function List({ itemList }) {
                         >
                             세부사항
                         </button>
-                        <button type="button" className="item_delete_btn">
+                        <button
+                            type="button"
+                            className="item_delete_btn"
+                            onClick={() => onDeleteItem(item)}
+                        >
                             삭제
                         </button>
                     </div>

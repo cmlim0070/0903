@@ -29,12 +29,10 @@ export default function InputBox({ onAddItem }) {
     };
 
     const getSelected = (newItem) => {
-        console.log("그룹");
         setValues({
             ...values,
             group: newItem,
         });
-        console.log("아이템 세팅", newItem);
     };
 
     const handleClick = () => {

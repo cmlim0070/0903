@@ -4,25 +4,27 @@ import List from "./components/List/List";
 import "./App.css";
 import Search from "./components/Search/Search";
 import InputBox from "./components/Input/InputBox";
+import EmptyList from "./components/List/EmptyList";
 
 function App() {
     const [items, setItems] = useState([]);
 
+    // 테스트 데이터
     const testData = [
         {
-            name: "임채민",
+            name: "홍길동",
             phone: "010-1234-1234",
             group: "가족",
             desc: "1",
         },
         {
-            name: "임재현",
+            name: "고주몽",
             phone: "010-1234-1234",
             group: "가족",
             desc: "3",
         },
         {
-            name: "임세영",
+            name: "박혁거세",
             phone: "010-1234-1234",
             group: "가족",
             desc: "4",
@@ -31,7 +33,10 @@ function App() {
 
     const addItems = (newItem) => {
         setItems((prevItem) => [...prevItem, newItem]);
-        console.log("리스트 업데이트", newItem);
+    };
+
+    const deleteItems = (targetItem) => {
+        setItems((prevItem) => prevItem.filter((item) => item !== targetItem));
     };
 
     return (
@@ -43,7 +48,11 @@ function App() {
                 </div>
                 <div className="rightCon">
                     <Search />
-                    <List itemList={testData} />
+                    {items.length > 0 ? (
+                        <List itemList={items} onDeleteItem={deleteItems} />
+                    ) : (
+                        <EmptyList />
+                    )}
                 </div>
             </section>
         </>
