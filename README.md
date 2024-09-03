@@ -1,5 +1,8 @@
 # React + Vite 전화번호부
 
+## 배포 주소
+https://cmlim0070.github.io/0903/
+
 ## 구현사항
 폴더 구조 설계 (Folder Structure Design), 
 컴포넌트 설계(Component Design)
