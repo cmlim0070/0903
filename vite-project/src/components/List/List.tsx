@@ -8,10 +8,16 @@ export default function List() {
 
     const onModalControl = (item) => {
         setSelectedItem(item);
-        setModalState(!modalState);
+        setModalState(true);
     };
 
     const modalBackground = useRef();
+
+    const closeModal = (e) => {
+        if (e.target === modalBackground.current) {
+            setModalState(false);
+        }
+    };
 
     const testData = [
         {
@@ -61,10 +67,9 @@ export default function List() {
             ))}
             {modalState && (
                 <Detail
-                    modalState={modalState}
-                    setModalState={setModalState}
                     ref={modalBackground}
                     selectedItem={selectedItem}
+                    onClick={closeModal}
                 />
             )}
         </ul>
