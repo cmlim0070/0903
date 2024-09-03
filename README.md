@@ -24,5 +24,5 @@ localStorage로 데이터 저장 (연락처 리스트(contactList) 와 그룹리
 상세 페이지에서 수정 기능 추가
 
 ## 개선점
-모달 context : 전역 컨트롤로 변경 (미완료)
+컨텍스트 API (Context API) 사용
 버튼컴포넌트 분리
