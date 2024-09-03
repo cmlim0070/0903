@@ -1,0 +1,29 @@
+.inputBox {
+    border: 1px solid rgb(184, 184, 184);
+    font-size: 20px;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.inputLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    gap: 1rem;
+    white-space: nowrap;
+}
+
+.input_submit_btn {
+    background-color: rgb(6, 106, 255);
+    color: white;
+    border-radius: 15px;
+    padding: 1rem;
+    border: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

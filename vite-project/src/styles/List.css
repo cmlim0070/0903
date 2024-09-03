@@ -1,0 +1,11 @@
+.listCon {
+    border: 1px solid black;
+}
+
+.listItem {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
