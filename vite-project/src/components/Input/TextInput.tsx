@@ -1,12 +1,19 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
-function TextInput({ label, name, value, onChange }) {
+const TextInput = forwardRef(({ label, name, id, onChange }, ref) => {
     return (
         <div className="inputLine">
-            <label htmlFor={name}>{label}</label>
-            <input type="text" name={name} value={value} onChange={onChange} />
+            <label htmlFor={id}>{label}</label>
+            <input
+                type="text"
+                id={id}
+                name={name}
+                placeholder={label}
+                onChange={onChange}
+                ref={ref}
+            />
         </div>
     );
-}
+});
 
 export default TextInput;

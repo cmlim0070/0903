@@ -6,18 +6,23 @@ import Search from "./components/Search/Search";
 import InputBox from "./components/Input/InputBox";
 
 function App() {
-    const [contacts, setContacts] = useState("");
+    const [items, setItems] = useState([]);
+
+    const addItems = (newItem) => {
+        setItems((prevItem) => [...prevItem, newItem]);
+        console.log("리스트 업데이트", newItem);
+    };
 
     return (
         <>
             <Header />
             <section>
                 <div className="leftCon">
-                    <InputBox />
+                    <InputBox onAddItem={addItems} />
                 </div>
                 <div className="rightCon">
                     <Search />
-                    <List />
+                    <List items={items} />
                 </div>
             </section>
         </>

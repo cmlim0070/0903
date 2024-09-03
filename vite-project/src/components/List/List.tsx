@@ -1,6 +1,18 @@
+import { useState, useRef } from "react";
 import "../../styles/List.css";
+import Detail from "./../Modal/Detail";
 
 export default function List() {
+    const [modalState, setModalState] = useState(false);
+    const [selectedItem, setSelectedItem] = useState(null);
+
+    const onModalControl = (item) => {
+        setSelectedItem(item);
+        setModalState(!modalState);
+    };
+
+    const modalBackground = useRef();
+
     const testData = [
         {
             name: "임채민",
@@ -34,7 +46,11 @@ export default function List() {
                 <li className="listItem">
                     {item.name} {item.phone} {item.group}
                     <div className="listBtn">
-                        <button type="button" className="show_detail_btn">
+                        <button
+                            type="button"
+                            className="show_detail_btn"
+                            onClick={() => onModalControl(item)}
+                        >
                             세부사항
                         </button>
                         <button type="button" className="item_delete_btn">
@@ -43,6 +59,14 @@ export default function List() {
                     </div>
                 </li>
             ))}
+            {modalState && (
+                <Detail
+                    modalState={modalState}
+                    setModalState={setModalState}
+                    ref={modalBackground}
+                    selectedItem={selectedItem}
+                />
+            )}
         </ul>
     );
 }
