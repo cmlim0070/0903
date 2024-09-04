@@ -9,27 +9,7 @@ import EmptyList from "./components/List/EmptyList";
 function App() {
     const [items, setItems] = useState([]);
 
-    // 테스트 데이터
-    const testData = [
-        {
-            name: "홍길동",
-            phone: "010-1234-1234",
-            group: "가족",
-            desc: "1",
-        },
-        {
-            name: "고주몽",
-            phone: "010-1234-1234",
-            group: "가족",
-            desc: "3",
-        },
-        {
-            name: "박혁거세",
-            phone: "010-1234-1234",
-            group: "가족",
-            desc: "4",
-        },
-    ];
+    const [userInput, setUserInput] = useState("");
 
     const addItems = (newItem) => {
         setItems((prevItem) => [...prevItem, newItem]);
@@ -39,6 +19,19 @@ function App() {
         setItems((prevItem) => prevItem.filter((item) => item !== targetItem));
     };
 
+    const filterList = (input) => {
+        setUserInput(input);
+    };
+
+    const filteredItems = userInput
+        ? items.filter(
+              (item) =>
+                  item.name.toLowerCase().includes(userInput) ||
+                  item.phone.includes(userInput) ||
+                  item.group.toLowerCase().includes(userInput)
+          )
+        : items;
+
     return (
         <>
             <Header />
@@ -47,9 +40,12 @@ function App() {
                     <InputBox onAddItem={addItems} />
                 </div>
                 <div className="rightCon">
-                    <Search />
-                    {items.length > 0 ? (
-                        <List itemList={items} onDeleteItem={deleteItems} />
+                    <Search filterList={filterList} />
+                    {filteredItems.length > 0 ? (
+                        <List
+                            itemList={filteredItems}
+                            onDeleteItem={deleteItems}
+                        />
                     ) : (
                         <EmptyList />
                     )}

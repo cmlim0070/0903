@@ -78,4 +78,15 @@ section {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    align-items: flex-start;
+}
+
+.rightCon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    height: 100%;
+    position: relative;
 }

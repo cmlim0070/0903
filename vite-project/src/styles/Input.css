@@ -1,8 +1,13 @@
 .inputBox {
     border: 1px solid rgb(184, 184, 184);
-    font-size: 20px;
+    font-size: 17px;
     padding: 2rem;
     border-radius: 15px;
+}
+
+.inputBox input {
+    font-size: 17px;
+    padding: 0.5rem;
 }
 
 .inputLine {
@@ -11,8 +16,27 @@
     justify-content: space-between;
     flex-direction: row;
     width: 100%;
-    gap: 1rem;
     white-space: nowrap;
+    padding: 0.5rem;
+    justify-content: flex-start;
+}
+
+.inputGroupLine {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    white-space: nowrap;
+    padding: 0.5rem;
+}
+
+.inputGroupLine__right {
+    display: flex;
+    gap: 1rem;
+}
+
+.group_add_btn {
+    background-color: rgb(204, 204, 204);
 }
 
 .input_submit_btn {
@@ -21,9 +45,18 @@
     border-radius: 15px;
     padding: 1rem;
     border: 0;
+    margin-top: 1rem;
+}
+
+select {
+    padding: 0.5rem;
 }
 
 form {
     display: flex;
     flex-direction: column;
+}
+
+label {
+    width: 100px;
 }

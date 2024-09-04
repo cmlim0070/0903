@@ -1,23 +1,17 @@
 import { useState, useRef } from "react";
 import Detail from "./../Modal/Detail";
+import useModal from "../../Hooks/useModal";
 
 import "../../styles/List.css";
 
 export default function List({ itemList, onDeleteItem }) {
-    const [modalState, setModalState] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
 
-    const onModalControl = (item) => {
+    const { openModal } = useModal();
+
+    const handleClick = (item) => {
         setSelectedItem(item);
-        setModalState(true);
-    };
-
-    const modalBackground = useRef();
-
-    const closeModal = (e) => {
-        if (e.target === modalBackground.current) {
-            setModalState(false);
-        }
+        openModal({ type: "Detail", props: { selectedItem: item } });
     };
 
     return (
@@ -29,7 +23,7 @@ export default function List({ itemList, onDeleteItem }) {
                         <button
                             type="button"
                             className="show_detail_btn"
-                            onClick={() => onModalControl(item)}
+                            onClick={() => handleClick(item)}
                         >
                             세부사항
                         </button>
@@ -43,13 +37,6 @@ export default function List({ itemList, onDeleteItem }) {
                     </div>
                 </li>
             ))}
-            {modalState && (
-                <Detail
-                    ref={modalBackground}
-                    selectedItem={selectedItem}
-                    onClick={closeModal}
-                />
-            )}
         </ul>
     );
 }

@@ -14,6 +14,7 @@ export default function InputBox({ onAddItem }) {
         group: "가족",
         desc: "",
     });
+
     const { name, phone, group, desc } = values;
 
     const validationPatterns = {

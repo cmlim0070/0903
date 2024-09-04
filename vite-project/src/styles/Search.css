@@ -2,8 +2,9 @@
     /* border: 1px solid black; */
     display: flex;
     gap: 1rem;
-    padding: 2rem;
     white-space: nowrap;
+
+    justify-content: center;
 }
 
 .search input {
@@ -12,6 +13,7 @@
     border: 0;
     padding: 1rem;
     border-radius: 15px;
+    width: 400px;
 }
 
 .search_init_btn {
